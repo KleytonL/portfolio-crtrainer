@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CR Trainer – Portfólio do Projeto de Estágio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root{--bg:#1E1E1E;--surface:#272727;--line:#3a3a3a;--text:#f2f2f2;--muted:#b5b5b5;--accent:#E84C0E}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:64px}
+    body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 Barlow,system-ui,sans-serif}
+    h1,h2,h3{font-family:"Barlow Condensed",Impact,sans-serif;line-height:1.1;margin:0 0 .5em}
+    h1{font-size:clamp(3rem,9vw,6rem);font-weight:700}
+    h2{font-size:2.2rem;font-weight:700;border-left:6px solid var(--accent);padding-left:14px}
+    h3{font-size:1.4rem;font-weight:600;margin-top:36px}
+    a{color:var(--accent)}
+    a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+    .nav{position:sticky;top:0;z-index:10;background:#161616;border-bottom:1px solid var(--line)}
+    .nav ul{display:flex;gap:6px;margin:0 auto;padding:10px 16px;list-style:none;overflow-x:auto;max-width:1000px}
+    .nav a{color:var(--text);text-decoration:none;padding:6px 12px;border-radius:4px;white-space:nowrap;font-weight:500}
+    .nav a:hover{background:var(--accent)}
+    main{max-width:1000px;margin:auto;padding:0 20px}
+    section{padding:64px 0;border-bottom:1px solid var(--line)}
+    .hero{padding:96px 0 72px}
+    .lead{font-size:1.3rem;max-width:60ch}
+    .goal{background:var(--surface);border-left:6px solid var(--accent);padding:16px 20px;max-width:60ch}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px}
+    .card h3{margin-top:0}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}
+    .tags li{background:var(--surface);border:1px solid var(--accent);padding:4px 12px;border-radius:999px;font-size:.95rem}
+    .table-wrap{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;min-width:680px}
+    th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{background:var(--accent);color:#fff;font-family:"Barlow Condensed",sans-serif;font-size:1.1rem}
+    .st{font-weight:500;white-space:nowrap}
+    .ok{color:#5fd38d}.wip{color:#f5b942}.todo{color:var(--muted)}
+    figure{margin:0}
+    figure img{width:100%;border-radius:6px;border:1px solid var(--line);background:var(--surface);aspect-ratio:16/10;object-fit:contain}
+    figcaption{color:var(--muted);font-size:.95rem;margin-top:6px}
+    figcaption a{margin-left:6px}
+    .video{aspect-ratio:16/9;width:100%;border:0;border-radius:6px;background:#000}
+    .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:500;padding:12px 24px;border-radius:4px}
+    .btn:hover{background:#c93f08}
+    dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 20px}
+    dt{color:var(--muted)}
+    dd{margin:0;font-weight:500}
+    .note{color:var(--muted)}
+    footer{text-align:center;color:var(--muted);padding:32px 20px;font-size:.9rem}
+  </style>
+</head>
+
+<body>
+
+  <header class="nav">
+    <nav aria-label="Seções">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#casos-de-uso">Casos de Uso e Cronograma</a></li>
+        <li><a href="#documentacao">Documentação</a></li>
+        <li><a href="#telas">Telas e Vídeo</a></li>
+        <li><a href="#relatorio">Relatório</a></li>
+        <li><a href="#aluno">Aluno</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <h1>CR Trainer</h1>
+      <p class="lead">Sistema web de gestão de academia: usuários, planos, pagamentos e fichas de treino.</p>
+      <p class="goal"><strong>Objetivo:</strong> centralizar a gestão da academia do proprietário e dar ao cliente
+        acesso ao seu plano, aos seus pagamentos e às suas fichas de treino.</p>
+      <p>Projeto desenvolvido no Estágio Obrigatório do curso de Ciência da Computação (UniFil), para um único
+        proprietário de academia. O sistema atende dois perfis: o <strong>Proprietário</strong>, que administra tudo, e
+        o <strong>Cliente</strong>, que acompanha e gerencia seus próprios dados.</p>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre o Projeto</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Problema</h3>
+          <p>A gestão da academia era feita de forma manual: cadastro de alunos, controle de
+            planos e pagamentos e fichas de treino sem um sistema único, o que gera retrabalho, erros e falta de
+            histórico.</p>
+        </div>
+        <div class="card">
+          <h3>Solução</h3>
+          <p>Aplicação web em que o frontend React consome uma API REST em Spring Boot. Os dados ficam em PostgreSQL,
+            com o esquema versionado por migrations Flyway.</p>
+        </div>
+      </div>
+
+      <h3>Tecnologias</h3>
+      <ul class="tags">
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>React</li>
+        <li>TypeScript</li>
+        <li>PostgreSQL</li>
+        <li>Astah UML</li>
+        <li>Figma</li>
+        <li>Heflo (BPMN)</li>
+      </ul>
+
+      <h3>Arquitetura</h3>
+      <p>O backend é organizado em camadas, uma para cada recurso: <em>Entity → Repository → Service → Controller</em>,
+        com DTOs de request e response. A validação fica na entidade (model). O frontend é organizado em páginas e
+        componentes reutilizáveis, como Sidebar, Navbar e modais de confirmação e de formulário.</p>
+      <p>O modelo de dados tem as entidades Usuário, Autenticação, Plano, ClientePlano, Pagamento, Ficha, Exercício e
+        FichaExercício.</p>
+    </section>
+
+    <section id="casos-de-uso">
+      <h2>Casos de Uso e Cronograma</h2>
+
+      <h3 style="margin-top:0">Casos de uso</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Caso de uso</th>
+              <th>Ator</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gerenciar Clientes</td>
+              <td>Proprietário</td>
+              <td>CRUD completo de clientes: cadastrar, listar, editar e excluir, com validações como CPF válido e
+                único.</td>
+            </tr>
+            <tr>
+              <td>Gerenciar Planos</td>
+              <td>Proprietário</td>
+              <td>CRUD completo dos planos oferecidos pela academia.</td>
+            </tr>
+            <tr>
+              <td>Gerenciar Fichas</td>
+              <td>Cliente e Proprietário</td>
+              <td>CRUD completo de fichas de treino, com exercícios do catálogo (séries, repetições, carga e descanso).
+                O Cliente gerencia só as próprias fichas; o Proprietário gerencia as de todos e atribui fichas aos
+                clientes.</td>
+            </tr>
+            <tr>
+              <td>Controlar Plano</td>
+              <td>Cliente</td>
+              <td>Assinar um plano, cancelar a assinatura e consultar o histórico. A assinatura nasce "Aguardando
+                Pagamento" e passa a "Ativo" quando o pagamento é confirmado.</td>
+            </tr>
+            <tr>
+              <td>Controlar Pagamento</td>
+              <td>Cliente</td>
+              <td>Realizar o pagamento da assinatura via gateway de pagamento e consultar o histórico de pagamentos. É
+                uma extensão de Controlar Plano.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Cronograma de desenvolvimento</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Caso de uso</th>
+              <th style="min-width:340px">Andamento</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gerenciar Clientes</td>
+              <td>Documentação concluída (especificação e diagramas). Sistema implementado com cadastro, listagem,
+                edição e exclusão, validação de CPF, ajustes pedidos na pré-banca, formulário em modal e paginação.</td>
+              <td class="st ok">Concluído</td>
+            </tr>
+            <tr>
+              <td>Gerenciar Planos</td>
+              <td>Documentação concluída (especificação e diagramas). Sistema implementado com as mesmas validações,
+                ajustes da pré-banca, formulário em modal e paginação.</td>
+              <td class="st ok">Concluído</td>
+            </tr>
+            <tr>
+              <td>Gerenciar Fichas</td>
+              <td>Especificação concluída. Banco de dados pronto (migrations de exercício, ficha e ficha_exercício, com
+                catálogo de exercícios). Implementação do cadastro e da edição em andamento.</td>
+              <td class="st wip">Em andamento</td>
+            </tr>
+            <tr>
+              <td>Controlar Plano</td>
+              <td>Especificação concluída. Estrutura inicial criada no backend e nas páginas de Cadastro e Login. Falta
+                implementar assinatura, cancelamento e histórico.</td>
+              <td class="st wip">Em andamento</td>
+            </tr>
+            <tr>
+              <td>Controlar Pagamento</td>
+              <td>Especificação concluída. A implementação será feita após Controlar Plano, com integração a um gateway
+                de pagamento.</td>
+              <td class="st todo">Previsto</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Cronograma atualizado de acordo com o andamento real do projeto neste bimestre.</p>
+
+    </section>
+
+    <!-- 4. DOCUMENTAÇÃO -->
+    <section id="documentacao">
+      <h2>Documentação</h2>
+      <p class="note">Clique na imagem para ampliar. O link "Abrir no Drive" leva ao arquivo original.</p>
+
+      <h3 style="margin-top:0">Diagrama de Casos de Uso</h3>
+      <div class="grid">
+        <figure><a href="assets/diagramas/caso-de-uso.png" target="_blank"><img src="assets/diagramas/caso-de-uso.png"
+              alt="Diagrama de Casos de Uso" loading="lazy"></a>
+          <figcaption>Casos de uso do sistema <a href="https://drive.google.com/drive/folders/1o6y1cyOTJwYWCiEWAVUlJP-oEdc68RBf?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+      </div>
+
+      <h3>Modelagem de dados e classes</h3>
+      <div class="grid">
+        <figure><a href="assets/diagramas/classes.png" target="_blank"><img src="assets/diagramas/classes.png"
+              alt="Diagrama de Classes" loading="lazy"></a>
+          <figcaption>Diagrama de Classes <a href="https://drive.google.com/drive/folders/1hS7COYUR5HmOTr2U3opwK8beGHKXYxNe?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+        <figure><a href="assets/diagramas/der.png" target="_blank"><img src="assets/diagramas/der.png" alt="DER lógico"
+              loading="lazy"></a>
+          <figcaption>DER lógico <a href="https://drive.google.com/drive/folders/1zopJNDsO8QrJs2TDTlwPefxVPMZ_7ZPh?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+      </div>
+
+      <h3>Diagramas de Sequência</h3>
+      <div class="grid">
+        <figure><a href="assets/diagramas/seq-clientes.png" target="_blank"><img src="assets/diagramas/seq-clientes.png"
+              alt="Sequência: Gerenciar Clientes" loading="lazy"></a>
+          <figcaption>Gerenciar Clientes <a href="https://drive.google.com/drive/folders/1l1jSqDkbwJy4odzwbkt8H6317KFWiFCq?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+        <figure><a href="assets/diagramas/seq-planos.png" target="_blank"><img src="assets/diagramas/seq-planos.png"
+              alt="Sequência: Gerenciar Planos" loading="lazy"></a>
+          <figcaption>Gerenciar Planos <a href="https://drive.google.com/drive/folders/1l1jSqDkbwJy4odzwbkt8H6317KFWiFCq?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+        <figure><a href="assets/diagramas/seq-plano-controle.png" target="_blank"><img
+              src="assets/diagramas/seq-plano-controle.png" alt="Sequência: Controlar Plano" loading="lazy"></a>
+          <figcaption>Controlar Plano <a href="https://drive.google.com/drive/folders/1l1jSqDkbwJy4odzwbkt8H6317KFWiFCq?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+        <figure><a href="assets/diagramas/seq-pagamento.png" target="_blank"><img
+              src="assets/diagramas/seq-pagamento.png" alt="Sequência: Controlar Pagamento" loading="lazy"></a>
+          <figcaption>Controlar Pagamento <a href="https://drive.google.com/drive/folders/1l1jSqDkbwJy4odzwbkt8H6317KFWiFCq?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+      </div>
+
+      <h3>Diagrama de Estados</h3>
+      <div class="grid">
+        <figure><a href="assets/diagramas/estados.png" target="_blank"><img src="assets/diagramas/estados.png"
+              alt="Diagrama de Estados" loading="lazy"></a>
+          <figcaption>Estados da assinatura (ClientePlano) <a href="https://drive.google.com/drive/folders/17A187ht4hDD6JwQDJsN7svK8KQucq4QW?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3>Outros diagramas</h3>
+      <div class="grid">
+        <figure><a href="assets/diagramas/implantacao.png" target="_blank"><img src="assets/diagramas/implantacao.png"
+              alt="Diagrama de Implantação" loading="lazy"></a>
+          <figcaption>Diagrama de Implantação <a href="https://drive.google.com/drive/folders/1yE0nN1vRZUEVvD167SegW_lz8FoXE7PI?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+        <figure><a href="assets/diagramas/as-is.png" target="_blank"><img src="assets/diagramas/as-is.png"
+              alt="Workflow AS-IS" loading="lazy"></a>
+          <figcaption>Workflow AS-IS (BPMN) <a href="https://drive.google.com/drive/folders/1utzit7-204yESFWiF_hywUhN9qJ2948A?usp=drive_link" target="_blank" rel="noopener">Abrir no Drive</a></figcaption>
+        </figure>
+      </div>
+
+      <h3>Outros artefatos</h3>
+      <ul>
+        <li><a href="https://drive.google.com/drive/folders/1hJGHN2YPKdTd4WuBE1G1vln7-f_1htg6?usp=drive_link" target="_blank" rel="noopener">Documento de Visão</a></li>
+        <li><a href="https://drive.google.com/drive/folders/14HX--kE50AkryZfL6JM5iBgfX1k6hUn1?usp=drive_link" target="_blank" rel="noopener">Especificação Suplementar</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1_5wEM7FLkiVnA1eS8Wagnm748boTpm5E?usp=drive_link" target="_blank" rel="noopener">Solicitação dos Principais Envolvidos</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1E1D13-gnr3uUo35_SLz2O_WVdQXKrAB4?usp=drive_link" target="_blank" rel="noopener">Especificações de Caso de Uso</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1CZHQiltyTy_3M5UIMyXuAiN_duH7JhvB?usp=drive_link" target="_blank" rel="noopener">Glossário</a></li>
+        <li><a href="https://www.figma.com/design/ykfzyOjHQSUa0HE1AEkGtC/GestaoDeAcademia?node-id=0-1&p=f" target="_blank" rel="noopener">Protótipo no Figma</a></li>
+      </ul>
+    </section>
+
+    <section id="telas">
+      <h2>Telas e Vídeo</h2>
+
+      <h3 style="margin-top:0">Vídeo de demonstração (máx. 5 min)</h3>
+      <!-- Troque VIDEO_ID pelo ID do vídeo no YouTube (público ou não listado) -->
+      <iframe class="video" src="https://www.youtube.com/embed/VIDEO_ID" title="Demonstração do CR Trainer"
+        allowfullscreen></iframe>
+      <p class="note"><a href="#" target="_blank" rel="noopener">Abrir o vídeo em outra aba</a></p>
+
+      <h3>Capturas de tela</h3>
+      <div class="grid">
+        <figure><img src="assets/telas/login.png" alt="Tela de Login" loading="lazy">
+          <figcaption>Login</figcaption>
+        </figure>
+        <figure><img src="assets/telas/dashboard.png" alt="Tela do Dashboard" loading="lazy">
+          <figcaption>Dashboard</figcaption>
+        </figure>
+        <figure><img src="assets/telas/usuarios.png" alt="Tela de Usuários" loading="lazy">
+          <figcaption>Gerenciar Clientes: listagem com paginação</figcaption>
+        </figure>
+        <figure><img src="assets/telas/cadastro-modal.png" alt="Formulário de cadastro em modal" loading="lazy">
+          <figcaption>Cadastro em modal, com validações</figcaption>
+        </figure>
+        <figure><img src="assets/telas/planos.png" alt="Tela de Planos" loading="lazy">
+          <figcaption>Gerenciar Planos</figcaption>
+        </figure>
+        <figure><img src="assets/telas/fichas.png" alt="Tela de Fichas de treino" loading="lazy">
+          <figcaption>Gerenciar Fichas</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="relatorio">
+      <h2>Relatório de Estágio</h2>
+      <p>Relatório atualizado com as atividades realizadas até 30/10/2026.</p>
+      <a class="btn" href="assets/relatorio-estagio.pdf" target="_blank" rel="noopener">Abrir Relatório de Estágio
+        (PDF)</a>
+    </section>
+
+    <section id="aluno" style="border-bottom:0">
+      <h2>Identificação do Aluno</h2>
+      <dl>
+        <dt>Nome completo</dt>
+        <dd>Kleyton Luiz de Sousa Vieira</dd>
+        <dt>Matrícula</dt>
+        <dd>244041003</dd>
+        <dt>Professor orientador</dt>
+        <dd>Luiz Felipe Gonsalves Silva</dd>
+        <dt>Curso</dt>
+        <dd>Ciência da Computação – UniFil</dd>
+      </dl>
+    </section>
+
+  </main>
+  <footer>CR Trainer · Portfólio do Estágio Obrigatório</footer>
+</body>
+
+</html>
